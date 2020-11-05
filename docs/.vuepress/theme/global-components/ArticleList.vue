@@ -48,29 +48,17 @@ export default {
 		return {
 			pageNum: 0,
 			list: [],
+			pageSize: 50,
 		};
 	},
-	props:{
+	props: {
 		// 使用自定义的数据展示，还是所有md文件展示
-		isUseSelfData:{
-			type:Array,
-			default:()=>[]
-		}
+		isUseSelfData: {
+			type: Array,
+			default: () => [],
+		},
 	},
 	computed: {
-		pageSize() {
-			if (
-				navigator.userAgent.match(/Android/i) ||
-				navigator.userAgent.match(/webOS/i) ||
-				navigator.userAgent.match(/iPhone/i) ||
-				navigator.userAgent.match(/iPad/i) ||
-				navigator.userAgent.match(/iPod/i) ||
-				navigator.userAgent.match(/BlackBerry/i) ||
-				navigator.userAgent.match(/Windows Phone/i)
-			)
-				return 30;
-			return 50;
-		},
 		allArticle() {
 			let list = [];
 			for (let i = 0; i < 20; i++) {
@@ -96,12 +84,25 @@ export default {
 				);
 			}
 			// return list;
-			return this.isUseSelfData.length?this.isUseSelfData:this.$site.pages.filter(page=>!page.frontmatter.type);
+			return this.isUseSelfData.length
+				? this.isUseSelfData
+				: this.$site.pages.filter((page) => !page.frontmatter.type);
 		},
 	},
-	created() {
+	created() {},
+	mounted() {
+		if (
+			window.navigator.userAgent.match(/Android/i) ||
+			window.navigator.userAgent.match(/webOS/i) ||
+			window.navigator.userAgent.match(/iPhone/i) ||
+			window.navigator.userAgent.match(/iPad/i) ||
+			window.navigator.userAgent.match(/iPod/i) ||
+			window.navigator.userAgent.match(/BlackBerry/i) ||
+			window.navigator.userAgent.match(/Windows Phone/i)
+		) {
+			this.pageSize = 30;
+		}
 		this.list = this.allArticle.slice(0, this.pageSize);
-
 	},
 	methods: {
 		currentChange(val) {
@@ -122,7 +123,7 @@ export default {
 	display: flex
 	flex-direction: column
 	// background-color red
-	min-height calc(100vh - 125px)
+	min-height: calc(100vh - 125px)
 	justify-content: space-between
 .articleBox
 	display: flex
@@ -133,7 +134,7 @@ export default {
 		flex: 1
 		margin: 0 5px 0 5px
 	.art-item
-		text-decoration none 
+		text-decoration: none
 		color: black
 	span, i
 		cursor: default
