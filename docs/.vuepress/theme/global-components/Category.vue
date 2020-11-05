@@ -12,10 +12,10 @@
 				>
 				</div>
 				<div
-					v-for="({title,regularPath},index) in pages"
+					v-for="({title,path},index) in pages"
 					:key="index"
-				><i v-if="regularPath">-</i>
-					<a :href="regularPath" class="a-link">
+				><i v-if="path">-</i>
+					<a :href="path" class="a-link">
 						&nbsp;&nbsp;{{title}}
 					</a>
 				</div>

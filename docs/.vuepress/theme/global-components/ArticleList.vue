@@ -5,7 +5,7 @@
 			<div
 				class="articleBox"
 				:key="index"
-				v-for="({title,frontmatter,regularPath},index) of list"
+				v-for="({title,frontmatter,path},index) of list"
 			>
 				<span style="width:25px">
 					{{pageNum*pageSize+index+1}}.
@@ -14,7 +14,7 @@
 				<span class="a-link">
 					<a
 						class="art-item"
-						:href="regularPath"
+						:href="path"
 					>{{title}}</a>
 				</span>
 

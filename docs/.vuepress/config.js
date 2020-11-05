@@ -4,6 +4,7 @@ module.exports = {
   title: 'The Blog of XuBug',
   theme: selfTheme,
   header: 'The Blog of XuBug',
+  dest:'public',
   themeConfig: {
     nav: [
       {
