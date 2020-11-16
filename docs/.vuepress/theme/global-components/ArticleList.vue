@@ -14,7 +14,7 @@
 				<span class="a-link">
 					<a
 						class="art-item"
-						:href="path"
+						:href="$withBase(path)"
 					>{{title}}</a>
 				</span>
 
@@ -103,6 +103,7 @@ export default {
 			this.pageSize = 30;
 		}
 		this.list = this.allArticle.slice(0, this.pageSize);
+		console.log(this.list,3)
 	},
 	methods: {
 		currentChange(val) {

@@ -5,7 +5,7 @@
 				<a
 					:class="{active:link==curPagePath||(link=='/'&&curPagePath=='/index'),nav:true}"
 					:key="index||''"
-					:href='link'
+					:href='$withBase(link)'
 					v-html="text||''"
 					:title="desc||''"
 				></a>

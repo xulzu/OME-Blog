@@ -15,7 +15,7 @@
 					v-for="({title,path},index) in pages"
 					:key="index"
 				><i v-if="path">-</i>
-					<a :href="path" class="a-link">
+					<a :href="$withBase(path)" class="a-link">
 						&nbsp;&nbsp;{{title}}
 					</a>
 				</div>
