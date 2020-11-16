@@ -5,7 +5,6 @@ module.exports = {
   theme: selfTheme,
   header: 'The Blog of XuBug',
   dest:'public',
-  base:'/public/',
   evergreen:true,
   themeConfig: {
     nav: [
