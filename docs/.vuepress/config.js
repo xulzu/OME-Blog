@@ -5,7 +5,7 @@ module.exports = {
   theme: selfTheme,
   header: 'The Blog of XuBug',
   dest:'public',
-  base:'/guizai-blog/',
+  base:'/blog-deployment/',
   evergreen:true,
   themeConfig: {
     nav: [
