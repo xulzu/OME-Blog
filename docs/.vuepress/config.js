@@ -5,7 +5,7 @@ module.exports = {
   theme: selfTheme,
   header: 'OME`s Blog',
   dest:'public',
-  base:'/public/',
+  base:'/guizai-blog/',
   evergreen:true,
   themeConfig: {
     nav: [
