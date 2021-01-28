@@ -59,34 +59,10 @@ export default {
 		},
 	},
 	computed: {
-		allArticle() {
-			let list = [];
-			for (let i = 0; i < 20; i++) {
-				list.push(
-					...[
-						{
-							title:
-								"你好啊水sas啥都发生阿萨德法师打发asdf sdfa电费",
-							time: "2020-02-01",
-							link: "#",
-						},
-						{
-							title: "你好玩儿水阿斯蒂芬电费的三方啊",
-							time: "2020-02-01",
-							link: "#",
-						},
-						{
-							title: "你好上阿萨德法师打发谁的的啊",
-							time: "2020-02-01",
-							link: "#",
-						},
-					]
-				);
-			}
-			// return list;
+		allArticle() {			
 			return this.isUseSelfData.length
 				? this.isUseSelfData
-				: this.$site.pages.filter((page) => !page.frontmatter.type);
+				: this.$site.pages.filter((page) => !page.frontmatter.type).sort((a,b)=>a.frontmatter.time-b.frontmatter.time);
 		},
 	},
 	created() {},

@@ -28,7 +28,7 @@
 			</div>
 			<div
 				class="articleBox"
-				v-if="showBoxs.length&1"
+				v-if="showBoxs.length>1&&showBoxs.length&1"
 			></div>
 		</template>
 		<div v-else style="width:100%">

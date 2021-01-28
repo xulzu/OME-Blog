@@ -1,9 +1,9 @@
 const selfTheme = require('./theme/')
 module.exports = {
   lang: 'zh-ch',
-  title: 'The Blog of XuBug',
+  title: 'OME`s Blog',
   theme: selfTheme,
-  header: 'The Blog of XuBug',
+  header: 'OME`s Blog',
   dest:'public',
   base:'/blog-deployment/',
   evergreen:true,
@@ -36,7 +36,7 @@ module.exports = {
     ],
     category:[{
       title:'Algorithm',
-      key:['algorithm'],
+      key:['Algorithm'],
       desc:'算法'
     },
     {
@@ -61,7 +61,6 @@ module.exports = {
       desc:'Webpack'
     },
   ],
-    footer: 'lisence -_- @2020-01-23 XuBug'
-
+    footer: 'lisence -_- @2020-01-23 OME'
   }
 }
