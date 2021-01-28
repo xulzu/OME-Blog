@@ -1,8 +1,13 @@
 const selfTheme = require('./theme/')
 module.exports = {
-  lang: 'zh-ch',
+  lang: 'zh-cn',
   title: 'OME`s Blog',
   theme: selfTheme,
+  locales:{
+    '/':{
+      lang: 'zh-cn', 
+    }
+  },
   header: 'OME`s Blog',
   dest:'public',
   base:'/guizai-blog/',
