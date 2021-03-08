@@ -8,7 +8,7 @@ time: '2021-03-08 16:25:34'
 
 ## 摘要
 
- 	在elementUI的库中，select组件是没有全选这个操作的。但是在日常开发中我们难免会需要使用全选的时候。因此如果我们使用了select组件来完成全选操作，主要包括全选的几种逻辑
+在elementUI的库中，select组件是没有全选这个操作的。但是在日常开发中我们难免会需要使用全选的时候。因此如果我们使用了select组件来完成全选操作，主要包括全选的几种逻辑
 
 + 如果勾选了“全部”，那么我们将所有选项选中
 + 如果取消“全部”，那么我们删除所有已选
@@ -25,7 +25,7 @@ time: '2021-03-08 16:25:34'
 
 ```vue
 <el-select v-model="val" multiple @change="selectChangeHandle">
-			<el-option :value='code' :label='name' v-for="					{code,name} in options" :key='code'>
+			<el-option :value='code' :label='name' v-for="{code,name} in options" :key='code'>
 			</el-option>
 </el-select>
 ```
