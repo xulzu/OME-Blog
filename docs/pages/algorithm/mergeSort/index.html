@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>归并排序 | OME`s Blog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/OME-Blog/assets/css/0.styles.6a732df8.css" as="style"><link rel="preload" href="/OME-Blog/assets/js/app.a9644c81.js" as="script"><link rel="preload" href="/OME-Blog/assets/js/10.2e459726.js" as="script"><link rel="preload" href="/OME-Blog/assets/js/8.22814545.js" as="script"><link rel="preload" href="/OME-Blog/assets/js/9.2a1c3bb7.js" as="script"><link rel="preload" href="/OME-Blog/assets/js/33.c2a18c52.js" as="script"><link rel="preload" href="/OME-Blog/assets/js/7.ab6ec5a1.js" as="script"><link rel="prefetch" href="/OME-Blog/assets/js/1.8ad5c428.js"><link rel="prefetch" href="/OME-Blog/assets/js/11.7553e104.js"><link rel="prefetch" href="/OME-Blog/assets/js/12.35361314.js"><link rel="prefetch" href="/OME-Blog/assets/js/13.74e1331c.js"><link rel="prefetch" href="/OME-Blog/assets/js/16.c4c76aa9.js"><link rel="prefetch" href="/OME-Blog/assets/js/17.7c5a81c3.js"><link rel="prefetch" href="/OME-Blog/assets/js/18.a11a9117.js"><link rel="prefetch" href="/OME-Blog/assets/js/19.ed7a18d0.js"><link rel="prefetch" href="/OME-Blog/assets/js/2.00362154.js"><link rel="prefetch" href="/OME-Blog/assets/js/20.e6fe52eb.js"><link rel="prefetch" href="/OME-Blog/assets/js/21.b498e1e1.js"><link rel="prefetch" href="/OME-Blog/assets/js/22.bd1dc52b.js"><link rel="prefetch" href="/OME-Blog/assets/js/23.0781b47b.js"><link rel="prefetch" href="/OME-Blog/assets/js/24.bed302e1.js"><link rel="prefetch" href="/OME-Blog/assets/js/25.46b80214.js"><link rel="prefetch" href="/OME-Blog/assets/js/26.12b2478c.js"><link rel="prefetch" href="/OME-Blog/assets/js/27.767630ca.js"><link rel="prefetch" href="/OME-Blog/assets/js/28.92a922b9.js"><link rel="prefetch" href="/OME-Blog/assets/js/29.7eeb6fb4.js"><link rel="prefetch" href="/OME-Blog/assets/js/3.8806f4d2.js"><link rel="prefetch" href="/OME-Blog/assets/js/30.42f678ea.js"><link rel="prefetch" href="/OME-Blog/assets/js/31.17f552c3.js"><link rel="prefetch" href="/OME-Blog/assets/js/32.b5c593d0.js"><link rel="prefetch" href="/OME-Blog/assets/js/34.919c5e61.js"><link rel="prefetch" href="/OME-Blog/assets/js/35.3e65ebd0.js"><link rel="prefetch" href="/OME-Blog/assets/js/36.891534af.js"><link rel="prefetch" href="/OME-Blog/assets/js/37.3421fea7.js"><link rel="prefetch" href="/OME-Blog/assets/js/38.e62df26d.js"><link rel="prefetch" href="/OME-Blog/assets/js/39.60176b08.js"><link rel="prefetch" href="/OME-Blog/assets/js/4.51282101.js"><link rel="prefetch" href="/OME-Blog/assets/js/40.e2e3f248.js"><link rel="prefetch" href="/OME-Blog/assets/js/5.22071e1a.js"><link rel="prefetch" href="/OME-Blog/assets/js/6.5762e3d0.js"><link rel="prefetch" href="/OME-Blog/assets/js/vendors~docsearch.65776881.js">
+    <link rel="stylesheet" href="/OME-Blog/assets/css/0.styles.6a732df8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><main class="md-content"><div style="width:100%"><div class="xu-footer" data-v-34e6bd95>
+	OME`s Blog
+</div> <div class="Nav-bar" data-v-7884f53e><nav data-v-7884f53e><a href="/OME-Blog/" title="文章" class="nav" data-v-7884f53e>Article</a><a href="/OME-Blog/category" title="分类" class="nav" data-v-7884f53e>Category</a><a href="/OME-Blog/about" title="关于" class="nav" data-v-7884f53e>About</a></nav></div> <!----> <!----> <div class="content__default"><h1 id="归并排序"><a href="#归并排序" class="header-anchor">#</a> 归并排序</h1> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 归并排序是一种时间复杂度o n*logn 空间复杂度o n的一种排序算法</span>
+<span class="token comment">//具体的原理为将排序的对象不停的一分为二，当分到最小单元时合并两个部分使得较小单元先排列好顺序</span>
+
+<span class="token keyword">class</span> <span class="token class-name">mergeSort</span><span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">arr<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>OrignArr<span class="token operator">=</span>arr
+        <span class="token keyword">this</span><span class="token punctuation">.</span>sorted<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">mainMergSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 合并入口</span>
+    <span class="token function">mainMergSort</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">splitTwoPart</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/**
+    * @desc 合并两个有序的部分
+    * @param {} 
+    * @return {}
+    **/</span>
+    <span class="token function">mergeSortedPart</span><span class="token punctuation">(</span><span class="token parameter">larr<span class="token punctuation">,</span>rarr</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// l-m为左半部分，m-r为右半部分</span>
+        <span class="token keyword">let</span> curAns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>larr<span class="token punctuation">.</span>length<span class="token operator">&amp;&amp;</span>rarr<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>larr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span>rarr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                curAns<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>larr<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                curAns<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>rarr<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        curAns<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">[</span><span class="token operator">...</span>larr<span class="token punctuation">,</span><span class="token operator">...</span>rarr<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> curAns
+    <span class="token punctuation">}</span>
+    <span class="token comment">/**
+    * @desc 把数组分割成两部分
+    * @param {} 
+    * @return {}
+    **/</span>
+    <span class="token function">splitTwoPart</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length<span class="token operator">&lt;=</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> arr
+        <span class="token keyword">let</span> l<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>r<span class="token operator">=</span>arr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">let</span> mid<span class="token operator">=</span><span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">&gt;&gt;</span><span class="token number">1</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">mergeSortedPart</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">splitTwoPart</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">splitTwoPart</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div> <div class="xu-footer" data-v-69651e46>
+	lisence -_- @2020-01-23 OME
+</div></main></div><div class="global-ui"></div></div>
+    <script src="/OME-Blog/assets/js/app.a9644c81.js" defer></script><script src="/OME-Blog/assets/js/10.2e459726.js" defer></script><script src="/OME-Blog/assets/js/8.22814545.js" defer></script><script src="/OME-Blog/assets/js/9.2a1c3bb7.js" defer></script><script src="/OME-Blog/assets/js/33.c2a18c52.js" defer></script><script src="/OME-Blog/assets/js/7.ab6ec5a1.js" defer></script>
+  </body>
+</html>
